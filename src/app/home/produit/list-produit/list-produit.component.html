@@ -1,0 +1,73 @@
+<!-- entete -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Les Produits  - {{les_produits.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_produit">Ajouter Produit</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">id_produit</th>
+<th scope="col">nom_produit</th>
+<th scope="col">description_produit</th>
+<th scope="col">prix_unitaire</th>
+<th scope="col">image_url</th>
+<th scope="col">created_at</th><th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_produit of les_produits">
+        <td>{{one_produit.id_produit}}</td>
+<td>{{one_produit.nom_produit}}</td>
+<td>{{one_produit.description_produit}}</td>
+<td>{{one_produit.prix_unitaire}}</td>
+<td>{{one_produit.image_url}}</td>
+<td>{{one_produit.created_at}}</td><td>
+  <div class="dropdown">
+    <button [disabled]="loading_delete_produit" type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">{{loading_delete_produit?"en cours ...":"actions"}}</button>
+    <div class="dropdown-menu">
+      <a (click)="on_click_edit(one_produit)" class="dropdown-item" data-bs-toggle="modal"
+        data-bs-target="#modal_edit_produit">
+        <i class="bx bx-edit-alt me-1"></i>
+        Modifier
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);" (click)=delete_produit({id_produit:one_produit.id_produit})><i class="bx bx-trash me-1"></i>Supprimer</a>
+    </div>
+  </div>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ajout -->
+<div class="modal fade" id="modal_add_produit" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+          <div class="modal-header " data-bs-theme="dark">
+              <h1 class="modal-title fs-5">Ajouter Produit</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <app-add-produit (cb_add_produit)="after_add($event)"></app-add-produit>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- modification -->
+<div class="modal fade" id="modal_edit_produit" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" data-bs-theme="dark">
+        <h1 class="modal-title fs-5">Modifier Produit</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-produit *ngIf="produit_to_edit" (cb_edit_produit)="after_edit($event)" [produit_to_edit]="produit_to_edit"></app-edit-produit>
+      </div>
+    </div>
+  </div>
+</div>
+  

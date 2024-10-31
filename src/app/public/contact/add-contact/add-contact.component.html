@@ -1,0 +1,51 @@
+
+<form  [formGroup]="reactiveForm_add_contact " (ngSubmit)="onSubmit_add_contact ()" #form_add_contact ="ngForm" class="row">
+  
+<!-- nom_contact field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_contact</label>
+          <input class="form-control" type="text"  formControlName="nom_contact"  placeholder="nom_contact"  [ngClass]="{ 'is-invalid': submitted && f.nom_contact.errors }"/>
+          <div *ngIf="submitted && f.nom_contact.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_contact.errors.required"> nom_contact est obligatoire </div>
+          </div>
+          </div>  
+<!-- email field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >email</label>
+          <input class="form-control" type="text"  formControlName="email"  placeholder="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required"> email est obligatoire </div>
+          </div>
+          </div>  
+<!-- telephone field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >telephone</label>
+          <input class="form-control" type="text"  formControlName="telephone"  placeholder="telephone"  [ngClass]="{ 'is-invalid': submitted && f.telephone.errors }"/>
+          <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+          <div *ngIf="f.telephone.errors.required"> telephone est obligatoire </div>
+          </div>
+          </div>  
+<!-- message field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >message</label>
+          <input class="form-control" type="text"  formControlName="message"  placeholder="message"  [ngClass]="{ 'is-invalid': submitted && f.message.errors }"/>
+          <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+          <div *ngIf="f.message.errors.required"> message est obligatoire </div>
+          </div>
+          </div>  
+<!-- created_at field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >created_at</label>
+          <input class="form-control" type="text"  formControlName="created_at"  placeholder="created_at"  [ngClass]="{ 'is-invalid': submitted && f.created_at.errors }"/>
+          <div *ngIf="submitted && f.created_at.errors" class="invalid-feedback">
+          <div *ngIf="f.created_at.errors.required"> created_at est obligatoire </div>
+          </div>
+          </div>  
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_contact "
+        (click)="form_add_contact .ngSubmit.emit()">{{loading_add_contact ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_add_contact ()">Vider</button>
+</div>

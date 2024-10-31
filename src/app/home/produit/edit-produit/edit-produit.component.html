@@ -1,0 +1,51 @@
+
+<form  [formGroup]="reactiveForm_edit_produit " (ngSubmit)="onSubmit_edit_produit ()" #form_edit_produit ="ngForm" class="row">
+  
+<!-- nom_produit field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_produit</label>
+          <input class="form-control" type="text"  formControlName="nom_produit"  placeholder="nom_produit"  [ngClass]="{ 'is-invalid': submitted && f.nom_produit.errors }"/>
+          <div *ngIf="submitted && f.nom_produit.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_produit.errors.required"> nom_produit est obligatoire </div>
+          </div>
+          </div>  
+<!-- description_produit field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >description_produit</label>
+          <input class="form-control" type="text"  formControlName="description_produit"  placeholder="description_produit"  [ngClass]="{ 'is-invalid': submitted && f.description_produit.errors }"/>
+          <div *ngIf="submitted && f.description_produit.errors" class="invalid-feedback">
+          <div *ngIf="f.description_produit.errors.required"> description_produit est obligatoire </div>
+          </div>
+          </div>  
+<!-- prix_unitaire field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >prix_unitaire</label>
+          <input class="form-control" type="text"  formControlName="prix_unitaire"  placeholder="prix_unitaire"  [ngClass]="{ 'is-invalid': submitted && f.prix_unitaire.errors }"/>
+          <div *ngIf="submitted && f.prix_unitaire.errors" class="invalid-feedback">
+          <div *ngIf="f.prix_unitaire.errors.required"> prix_unitaire est obligatoire </div>
+          </div>
+          </div>  
+<!-- image_url field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >image_url</label>
+          <input class="form-control" type="text"  formControlName="image_url"  placeholder="image_url"  [ngClass]="{ 'is-invalid': submitted && f.image_url.errors }"/>
+          <div *ngIf="submitted && f.image_url.errors" class="invalid-feedback">
+          <div *ngIf="f.image_url.errors.required"> image_url est obligatoire </div>
+          </div>
+          </div>  
+<!-- created_at field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >created_at</label>
+          <input class="form-control" type="text"  formControlName="created_at"  placeholder="created_at"  [ngClass]="{ 'is-invalid': submitted && f.created_at.errors }"/>
+          <div *ngIf="submitted && f.created_at.errors" class="invalid-feedback">
+          <div *ngIf="f.created_at.errors.required"> created_at est obligatoire </div>
+          </div>
+          </div>  
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_edit_produit "
+        (click)="form_edit_produit .ngSubmit.emit()">{{loading_edit_produit ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_edit_produit ()">Vider</button>
+</div>

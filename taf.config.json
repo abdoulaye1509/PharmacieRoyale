@@ -1,0 +1,274 @@
+{
+    "projectName": "PharmacieRoyale",
+    "decription": "Fichier de configuration de Taf",
+    "taf_base_url": "http:\/\/localhost\/taf_pharmacieroyale\/",
+    "les_modules": [
+        {
+            "module": "home",
+            "les_tables": [
+                {
+                    "table": "contact",
+                    "description": [
+                        "id_contact",
+                        "nom_contact",
+                        "email",
+                        "telephone",
+                        "message",
+                        "created_at"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "contact",
+                        "cle_primaire": {
+                            "Field": "id_contact",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "contact"
+                        ],
+                        "les_referenced_table": [],
+                        "les_colonnes": [
+                            {
+                                "Field": "id_contact",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "nom_contact",
+                                "Type": "varchar(255)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "email",
+                                "Type": "varchar(255)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "telephone",
+                                "Type": "varchar(20)",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "message",
+                                "Type": "text",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "created_at",
+                                "Type": "timestamp",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": "current_timestamp()",
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "produit",
+                    "description": [
+                        "id_produit",
+                        "nom_produit",
+                        "description_produit",
+                        "prix_unitaire",
+                        "image_url",
+                        "created_at"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "produit",
+                        "cle_primaire": {
+                            "Field": "id_produit",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "produit"
+                        ],
+                        "les_referenced_table": [],
+                        "les_colonnes": [
+                            {
+                                "Field": "id_produit",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "nom_produit",
+                                "Type": "varchar(255)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "description_produit",
+                                "Type": "text",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "prix_unitaire",
+                                "Type": "decimal(10,2)",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "image_url",
+                                "Type": "varchar(255)",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "created_at",
+                                "Type": "timestamp",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": "current_timestamp()",
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                },
+                {
+                    "table": "service",
+                    "description": [
+                        "id_service",
+                        "nom_service",
+                        "description_service",
+                        "created_at"
+                    ],
+                    "table_descriptions": {
+                        "table_name": "service",
+                        "cle_primaire": {
+                            "Field": "id_service",
+                            "Type": "int(11)",
+                            "Null": "NO",
+                            "Key": "PRI",
+                            "Default": null,
+                            "Extra": "auto_increment",
+                            "explications": "cl\u00e9 primaire"
+                        },
+                        "les_based_table_name": [
+                            "service"
+                        ],
+                        "les_referenced_table": [],
+                        "les_colonnes": [
+                            {
+                                "Field": "id_service",
+                                "Type": "int(11)",
+                                "Null": "NO",
+                                "Key": "PRI",
+                                "Default": null,
+                                "Extra": "auto_increment",
+                                "explications": "cl\u00e9 primaire"
+                            },
+                            {
+                                "Field": "nom_service",
+                                "Type": "varchar(255)",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "description_service",
+                                "Type": "text",
+                                "Null": "YES",
+                                "Key": "",
+                                "Default": null,
+                                "Extra": "",
+                                "explications": ""
+                            },
+                            {
+                                "Field": "created_at",
+                                "Type": "timestamp",
+                                "Null": "NO",
+                                "Key": "",
+                                "Default": "current_timestamp()",
+                                "Extra": "",
+                                "explications": ""
+                            }
+                        ]
+                    },
+                    "les_types": [
+                        "add",
+                        "edit",
+                        "list",
+                        "details"
+                    ]
+                }
+            ]
+        },
+        {
+            "module": "public",
+            "les_tables": [
+                {
+                    "table": "login",
+                    "description": [
+                        "login",
+                        "pwd"
+                    ],
+                    "les_types": [
+                        "login"
+                    ]
+                }
+            ]
+        }
+    ]
+}

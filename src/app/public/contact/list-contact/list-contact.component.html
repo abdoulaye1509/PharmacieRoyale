@@ -1,0 +1,73 @@
+<!-- entete -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Les Contacts  - {{les_contacts.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_contact">Ajouter Contact</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">id_contact</th>
+<th scope="col">nom_contact</th>
+<th scope="col">email</th>
+<th scope="col">telephone</th>
+<th scope="col">message</th>
+<th scope="col">created_at</th><th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_contact of les_contacts">
+        <td>{{one_contact.id_contact}}</td>
+<td>{{one_contact.nom_contact}}</td>
+<td>{{one_contact.email}}</td>
+<td>{{one_contact.telephone}}</td>
+<td>{{one_contact.message}}</td>
+<td>{{one_contact.created_at}}</td><td>
+  <div class="dropdown">
+    <button [disabled]="loading_delete_contact" type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">{{loading_delete_contact?"en cours ...":"actions"}}</button>
+    <div class="dropdown-menu">
+      <a (click)="on_click_edit(one_contact)" class="dropdown-item" data-bs-toggle="modal"
+        data-bs-target="#modal_edit_contact">
+        <i class="bx bx-edit-alt me-1"></i>
+        Modifier
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);" (click)=delete_contact({id_contact:one_contact.id_contact})><i class="bx bx-trash me-1"></i>Supprimer</a>
+    </div>
+  </div>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ajout -->
+<div class="modal fade" id="modal_add_contact" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+          <div class="modal-header " data-bs-theme="dark">
+              <h1 class="modal-title fs-5">Ajouter Contact</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <app-add-contact (cb_add_contact)="after_add($event)"></app-add-contact>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- modification -->
+<div class="modal fade" id="modal_edit_contact" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" data-bs-theme="dark">
+        <h1 class="modal-title fs-5">Modifier Contact</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-contact *ngIf="contact_to_edit" (cb_edit_contact)="after_edit($event)" [contact_to_edit]="contact_to_edit"></app-edit-contact>
+      </div>
+    </div>
+  </div>
+</div>
+  

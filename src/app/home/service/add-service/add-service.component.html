@@ -1,0 +1,35 @@
+
+<form  [formGroup]="reactiveForm_add_service " (ngSubmit)="onSubmit_add_service ()" #form_add_service ="ngForm" class="row">
+  
+<!-- nom_service field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_service</label>
+          <input class="form-control" type="text"  formControlName="nom_service"  placeholder="nom_service"  [ngClass]="{ 'is-invalid': submitted && f.nom_service.errors }"/>
+          <div *ngIf="submitted && f.nom_service.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_service.errors.required"> nom_service est obligatoire </div>
+          </div>
+          </div>  
+<!-- description_service field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >description_service</label>
+          <input class="form-control" type="text"  formControlName="description_service"  placeholder="description_service"  [ngClass]="{ 'is-invalid': submitted && f.description_service.errors }"/>
+          <div *ngIf="submitted && f.description_service.errors" class="invalid-feedback">
+          <div *ngIf="f.description_service.errors.required"> description_service est obligatoire </div>
+          </div>
+          </div>  
+<!-- created_at field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >created_at</label>
+          <input class="form-control" type="text"  formControlName="created_at"  placeholder="created_at"  [ngClass]="{ 'is-invalid': submitted && f.created_at.errors }"/>
+          <div *ngIf="submitted && f.created_at.errors" class="invalid-feedback">
+          <div *ngIf="f.created_at.errors.required"> created_at est obligatoire </div>
+          </div>
+          </div>  
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_service "
+        (click)="form_add_service .ngSubmit.emit()">{{loading_add_service ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_add_service ()">Vider</button>
+</div>

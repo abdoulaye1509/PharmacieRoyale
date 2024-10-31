@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center vh-100">
+  <div class="container">
+    <form  [formGroup]="reactiveForm_login_login " (ngSubmit)="onSubmit_login_login ()" #form_login_login ="ngForm" class="row">
+      <!-- login field avec un control de validite -->
+    <div class="form-group col-sm-6">
+      <label >Email</label>
+      <input class="form-control" type="text"  formControlName="login"  placeholder="login"  [ngClass]="{ 'is-invalid': submitted && f.login.errors }"/>
+      <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+          <div *ngIf="f.login.errors.required"> login est obligatoire </div>
+      </div>
+    </div>  
+<!-- pwd field avec un control de validite -->
+    <div class="form-group col-sm-6">
+      <label >Mot de Passe</label>
+      <input class="form-control" type="text"  formControlName="pwd"  placeholder="pwd"  [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }"/>
+      <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+          <div *ngIf="f.pwd.errors.required"> Mot de Passe est obligatoire </div>
+      </div>
+    </div>  
+    </form>
+    <!-- vous pouvez valider votre formulaire n'importe ou -->
+
+    <div class="text-center m-2">
+        <button type="button" class="btn btn-primary m-2" [disabled]="loading_login_login "
+            (click)="form_login_login .ngSubmit.emit()">{{loading_login_login ?"En cours ...":"Valider"}}</button>
+        <button class="btn btn-secondary m-2" type="reset" (click)="onReset_login_login ()">Vider</button>
+    </div>
+  </div>
+</div>
