@@ -1,0 +1,28 @@
+.site-navbar {
+    background-color: #fff; /* Couleur de fond de la navbar */
+}
+
+.site-menu {
+    list-style: none; /* Pas de points de liste */
+    padding: 0; /* Pas de padding */
+}
+
+.site-menu > li {
+    display: inline-block; /* Afficher les éléments du menu en ligne */
+    margin-right: 20px; /* Espacement entre les éléments */
+    position: relative; /* Nécessaire pour le positionnement des sous-menus */
+}
+
+.dropdown {
+    display: none; /* Masquer par défaut */
+    position: absolute; /* Positionner le sous-menu */
+    z-index: 1000; /* S'assurer que le sous-menu est au-dessus d'autres éléments */
+}
+
+.has-children:hover .dropdown {
+    display: block; /* Afficher lors du survol */
+}
+
+.has-children {
+    cursor: pointer; /* Indiquer que l'élément est cliquable */
+}
